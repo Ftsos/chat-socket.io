@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HOLA SOY EL INDEX.HTML</title>
+</head>
+<body>
+<div style="text-align: center;"><h1>Socket.Io Node js, Php y Mysql</h1></div>
+
+<form id="form">
+	
+<input type="text" id="input">
+
+<button type="submit">Enviar Texto</button>
+
+</form>
+
+<div id="parrafo"></div>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+var conexion = io();
+var form = document.getElementById('form');
+var input = document.getElementById('input');
+form.addEventListener('submit', (event) => {
+
+event.preventDefault();
+
+console.log(input.value);
+
+var vtext = input.value;
+
+conexion.emit("mensaje", vtext);
+
+input.value = "";
+
+});
+
+
+
+conexion.on("msg", prf)
+
+function prf(data) {
+	var parrafo = document.getElementById('parrafo');
+	parrafo.innerHTML += `<p>${data}<br></p>`
+	console.log(data);
+}
+
+
+
+</script>
+</body>
+</html>
