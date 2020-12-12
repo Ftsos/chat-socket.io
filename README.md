@@ -1,4 +1,4 @@
 # chat-socket.io
 
 
-hola es open source
+It's Just a Simple Socket Chat
